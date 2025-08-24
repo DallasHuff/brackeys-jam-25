@@ -3,8 +3,6 @@ extends Node
 var bias_power: float = 1.3 # > 0, larger = stronger anti-clumping
 var floor_seed: int = -1 # -1 = random seed; else set for deterministic results
 
-const DIRECTIONS := [Vector2i.RIGHT, Vector2i.LEFT, Vector2i.UP, Vector2i.DOWN]
-
 func generate(number_of_rooms: int) -> Array[Vector2i]:
 	var rooms: Array[Vector2i] = [Vector2i.ZERO] # start at (0,0)
 	var random_generator := RandomNumberGenerator.new()
