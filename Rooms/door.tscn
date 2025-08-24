@@ -6,8 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hun61"]
 size = Vector2(10, 10)
 
-[node name="Door" type="Area2D"]
+[node name="Door" type="Area2D" node_paths=PackedStringArray("spawnPoint")]
+collision_layer = 4096
+collision_mask = 2
 script = ExtResource("1_ba8gm")
+spawnPoint = NodePath("SpawnPoint")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hun61")
@@ -15,3 +18,6 @@ shape = SubResource("RectangleShape2D_hun61")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 texture = ExtResource("2_v6xrn")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, 15)

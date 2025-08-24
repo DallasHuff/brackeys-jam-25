@@ -1,6 +1,6 @@
 extends Node
 
-var bias_power: float = 1.3 # > 0, larger = stronger anti-clumping
+var bias_power: float = 1.4 # > 0, larger = stronger anti-clumping
 var floor_seed: int = -1 # -1 = random seed; else set for deterministic results
 
 func generate(number_of_rooms: int) -> Array[Vector2i]:

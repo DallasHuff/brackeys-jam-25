@@ -114,3 +114,4 @@ switch_spell={
 2d_physics/layer_4="EnemyHurtbox"
 2d_physics/layer_5="EnemyProjectile"
 2d_physics/layer_12="Collision"
+2d_physics/layer_13="Doors"
