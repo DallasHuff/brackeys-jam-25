@@ -8,6 +8,6 @@ extends Area2D
 func _ready() -> void: 
 	body_entered.connect(_on_body_entered)
 
-func _on_body_entered(_body: Node2D) -> void:
-	# if player collides
-	Floor.travel_to_room(travelDirection)
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Floor.travel_to_room(travelDirection)
