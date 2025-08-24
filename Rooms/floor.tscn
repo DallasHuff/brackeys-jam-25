@@ -6,4 +6,5 @@
 [node name="Floor" type="Node2D"]
 script = ExtResource("1_cgngl")
 room_scenes = Array[PackedScene]([ExtResource("2_wd3ws")])
+number_of_rooms = 30
 metadata/_custom_type_script = "uid://ckybsqney8c80"
