@@ -12,13 +12,13 @@ var current_room: Room
 
 func _ready() -> void:
 	# print("ready")
-	# setup_room_layout()
+	setup_room_layout()
 	load_room(current_position)
 
 
-# func setup_room_layout() -> void:
-# 	for room in GenerateRoomLayout.generate(number_of_rooms):
-# 		rooms[room] = room_scenes[0]
+func setup_room_layout() -> void:
+	for room in GenerateRoomLayout.generate(number_of_rooms):
+		rooms[room] = room_scenes[0]
 
 
 func load_room(room_position: Vector2i) -> void:
@@ -38,25 +38,11 @@ func travel_to_room(direction: Direction.Enum) -> void:
 	if is_instance_valid(rooms[current_position]):
 		current_room.queue_free()
 
-	current_position += direction_to_position(direction)
+	current_position += Direction.direction_to_position(direction)
 	load_room(current_position)
 	
 
 func is_room_in_direction(direction: Direction.Enum) -> bool:
-	if rooms.has(current_position + direction_to_position(direction)):
+	if rooms.has(current_position + Direction.direction_to_position(direction)):
 		return true
 	return false
-
-
-func direction_to_position(direction: Direction.Enum) -> Vector2i:
-	match direction:
-		Direction.Enum.UP:
-			return Vector2i.DOWN # flipped in y direction
-		Direction.Enum.RIGHT:
-			return Vector2i.RIGHT
-		Direction.Enum.DOWN:
-			return Vector2i.UP # flipped in y direction
-		Direction.Enum.LEFT:
-			return Vector2i.LEFT
-		_:
-			return Vector2i.ZERO
