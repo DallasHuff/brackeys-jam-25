@@ -5,9 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bbqv1pfcry7tb" path="res://white square.png" id="2_4o3f6"]
 [ext_resource type="PackedScene" uid="uid://ly374lfgx7y3" path="res://obstacle.tscn" id="3_v5vuv"]
 
-[node name="Room" type="Node2D" node_paths=PackedStringArray("doors")]
+[node name="Room" type="Node2D" node_paths=PackedStringArray("doors", "camera")]
+scale = Vector2(10, 10)
 script = ExtResource("1_bisa2")
 doors = [NodePath("Doors/TopDoor"), NodePath("Doors/RightDoor"), NodePath("Doors/BottomDoor"), NodePath("Doors/LeftDoor")]
+camera = NodePath("Camera2D")
 
 [node name="Room Background" type="Sprite2D" parent="."]
 scale = Vector2(9.5, 9.5)
@@ -44,3 +46,5 @@ position = Vector2(0, 45)
 
 [node name="LeftDoor" parent="Doors" instance=ExtResource("1_88gup")]
 position = Vector2(-45, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
