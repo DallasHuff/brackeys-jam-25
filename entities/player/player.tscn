@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqs3xf6m3dtiw"]
+
+[ext_resource type="Script" uid="uid://dw4p2fpqhq7q0" path="res://entities/player/player.gd" id="1_fkugw"]
+[ext_resource type="Script" uid="uid://cpdvtfph3miau" path="res://entities/components/hurtbox_component.gd" id="2_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://0u4egnk6kdpf" path="res://icon.svg" id="3_8fjmc"]
+[ext_resource type="Script" uid="uid://b5xjsy5lknfsk" path="res://entities/components/health_component.gd" id="3_qiwj3"]
+[ext_resource type="Script" uid="uid://cmlgrcxn3vvkp" path="res://entities/components/input_component.gd" id="4_26q78"]
+[ext_resource type="Script" uid="uid://dscyvstini58b" path="res://entities/components/move_component.gd" id="5_bectd"]
+[ext_resource type="Script" uid="uid://cd6uxkvbc40i7" path="res://entities/components/spell_component.gd" id="7_qiwj3"]
+[ext_resource type="Resource" uid="uid://mkbf1tb4mo6a" path="res://entities/spells/resources/basic_spell/basic_spell.tres" id="8_26q78"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvtmh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7thud"]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "move_component", "spell_component")]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_fkugw")
+health_component = NodePath("HealthComponent")
+move_component = NodePath("MoveComponent")
+spell_component = NodePath("SpellComponent")
+
+[node name="PhysicsCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wvtmh")
+
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("2_8fjmc")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://cpdvtfph3miau"
+
+[node name="HurtboxCollision" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_7thud")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_8fjmc")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_qiwj3")
+metadata/_custom_type_script = "uid://b5xjsy5lknfsk"
+
+[node name="InputComponent" type="Node" parent="." node_paths=PackedStringArray("receiver")]
+script = ExtResource("4_26q78")
+receiver = NodePath("..")
+metadata/_custom_type_script = "uid://cmlgrcxn3vvkp"
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("5_bectd")
+character = NodePath("..")
+metadata/_custom_type_script = "uid://dscyvstini58b"
+
+[node name="SpellComponent" type="Node" parent="."]
+script = ExtResource("7_qiwj3")
+active_spell = ExtResource("8_26q78")
+metadata/_custom_type_script = "uid://cd6uxkvbc40i7"

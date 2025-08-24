@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://kebnerkky3tm"]
+
+[ext_resource type="Script" uid="uid://6v1p7xaw5v0m" path="res://entities/components/hitbox_component.gd" id="1_gigc2"]
+[ext_resource type="Script" uid="uid://b06bvrj057lra" path="res://entities/spells/scenes/basic_projectile/basic_projectile.gd" id="1_v6xyq"]
+[ext_resource type="Texture2D" uid="uid://0u4egnk6kdpf" path="res://icon.svg" id="2_u4cuu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gigc2"]
+
+[node name="BasicProjectile" type="Node2D"]
+script = ExtResource("1_v6xyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_u4cuu")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_gigc2")
+metadata/_custom_type_script = "uid://6v1p7xaw5v0m"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_gigc2")
