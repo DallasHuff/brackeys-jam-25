@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://common/autoloads/global.gd"
 EventsBus="*res://common/autoloads/events_bus.gd"
-Floor="*res://floor.tscn"
+Floor="*res://Rooms/floor.tscn"
 
 [debug]
 

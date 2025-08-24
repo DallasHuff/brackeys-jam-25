@@ -3,22 +3,22 @@ extends Node2D
 # Autoload - manages room layout
 
 @export var room_scenes: Array[PackedScene] # Will be used as a pool of possible rooms once we start randomizing them
-@export var rooms: Dictionary[Vector2i, PackedScene]
+@export var number_of_rooms: int = 10
 @export var current_position: Vector2i = Vector2i(0, 0)
 
+var rooms: Dictionary[Vector2i, PackedScene]
 var current_room: Room
 
 
 func _ready() -> void:
 	# print("ready")
-	# generate_floor_layout()
+	# setup_room_layout()
 	load_room(current_position)
 
 
-func generate_floor_layout() -> void:
-	# print("generate floor layout")
-	rooms[Vector2i(0, 0)] = room_scenes[0]
-	rooms[Vector2i(0, 1)] = room_scenes[0]
+# func setup_room_layout() -> void:
+# 	for room in GenerateRoomLayout.generate(number_of_rooms):
+# 		rooms[room] = room_scenes[0]
 
 
 func load_room(room_position: Vector2i) -> void:

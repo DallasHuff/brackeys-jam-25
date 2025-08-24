@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://msjbmodafbn1"]
 
-[ext_resource type="PackedScene" uid="uid://b2c6of1fkxb1n" path="res://door.tscn" id="1_88gup"]
-[ext_resource type="Script" uid="uid://be61puhomjmtg" path="res://room.gd" id="1_bisa2"]
+[ext_resource type="PackedScene" uid="uid://b2c6of1fkxb1n" path="res://Rooms/door.tscn" id="1_88gup"]
+[ext_resource type="Script" uid="uid://be61puhomjmtg" path="res://Rooms/room.gd" id="1_bisa2"]
 [ext_resource type="Texture2D" uid="uid://bbqv1pfcry7tb" path="res://white square.png" id="2_4o3f6"]
-[ext_resource type="PackedScene" uid="uid://ly374lfgx7y3" path="res://obstacle.tscn" id="3_v5vuv"]
+[ext_resource type="PackedScene" uid="uid://ly374lfgx7y3" path="res://Rooms/obstacle.tscn" id="3_v5vuv"]
 
 [node name="Room" type="Node2D" node_paths=PackedStringArray("doors", "camera")]
 scale = Vector2(10, 10)

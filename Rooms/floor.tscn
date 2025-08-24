@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk2s5mu0eschv"]
+
+[ext_resource type="Script" uid="uid://ckybsqney8c80" path="res://Rooms/floor.gd" id="1_cgngl"]
+[ext_resource type="PackedScene" uid="uid://msjbmodafbn1" path="res://Rooms/room.tscn" id="2_wd3ws"]
+
+[node name="Floor" type="Node2D"]
+script = ExtResource("1_cgngl")
+room_scenes = Array[PackedScene]([ExtResource("2_wd3ws")])
+metadata/_custom_type_script = "uid://ckybsqney8c80"
