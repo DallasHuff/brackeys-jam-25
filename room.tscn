@@ -1,28 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://msjbmodafbn1"]
+[gd_scene load_steps=5 format=3 uid="uid://msjbmodafbn1"]
 
 [ext_resource type="PackedScene" uid="uid://b2c6of1fkxb1n" path="res://door.tscn" id="1_88gup"]
 [ext_resource type="Script" uid="uid://be61puhomjmtg" path="res://room.gd" id="1_bisa2"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bisa2"]
+[ext_resource type="Texture2D" uid="uid://bbqv1pfcry7tb" path="res://white square.png" id="2_4o3f6"]
+[ext_resource type="PackedScene" uid="uid://ly374lfgx7y3" path="res://obstacle.tscn" id="3_v5vuv"]
 
 [node name="Room" type="Node2D" node_paths=PackedStringArray("doors")]
 script = ExtResource("1_bisa2")
-doors = [NodePath("TopDoor"), NodePath("RightDoor"), NodePath("BottomDoor"), NodePath("LeftDoor")]
+doors = [NodePath("Doors/TopDoor"), NodePath("Doors/RightDoor"), NodePath("Doors/BottomDoor"), NodePath("Doors/LeftDoor")]
 
 [node name="Room Background" type="Sprite2D" parent="."]
-scale = Vector2(151.325, 100)
-texture = SubResource("PlaceholderTexture2D_bisa2")
+scale = Vector2(9.5, 9.5)
+texture = ExtResource("2_4o3f6")
 
-[node name="TopDoor" parent="." instance=ExtResource("1_88gup")]
-position = Vector2(1, -51)
+[node name="Walls" type="Node2D" parent="."]
 
-[node name="RightDoor" parent="." instance=ExtResource("1_88gup")]
-position = Vector2(76, -1)
+[node name="LeftWall" parent="Walls" instance=ExtResource("3_v5vuv")]
+position = Vector2(-45, 0)
+scale = Vector2(1, 19)
 
-[node name="BottomDoor" parent="." instance=ExtResource("1_88gup")]
-position = Vector2(-1, 50)
+[node name="TopWall" parent="Walls" instance=ExtResource("3_v5vuv")]
+position = Vector2(0, -45)
+scale = Vector2(19, 1)
 
-[node name="LeftDoor" parent="." instance=ExtResource("1_88gup")]
-position = Vector2(-76, -1)
+[node name="TopWall2" parent="Walls" instance=ExtResource("3_v5vuv")]
+position = Vector2(0, 45)
+scale = Vector2(19, 1)
 
-[node name="SpawnPoint" type="Node2D" parent="."]
+[node name="RightWall" parent="Walls" instance=ExtResource("3_v5vuv")]
+position = Vector2(45, 0)
+scale = Vector2(1, 19)
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="TopDoor" parent="Doors" instance=ExtResource("1_88gup")]
+position = Vector2(0, -45)
+
+[node name="RightDoor" parent="Doors" instance=ExtResource("1_88gup")]
+position = Vector2(45, 0)
+
+[node name="BottomDoor" parent="Doors" instance=ExtResource("1_88gup")]
+position = Vector2(0, 45)
+
+[node name="LeftDoor" parent="Doors" instance=ExtResource("1_88gup")]
+position = Vector2(-45, 0)
