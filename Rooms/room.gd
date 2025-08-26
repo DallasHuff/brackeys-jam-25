@@ -3,11 +3,7 @@ extends Node2D
 
 @export var doors: Array[Door] # 0: top, 1: right, 2: bottom, 3: left
 @export var main_walls: Array[StaticBody2D] # 0: top, 1: right, 2: bottom, 3: left
-@export var camera: Camera2D # temporary, should follow player
 @export var door_width: float = 1
-
-func _ready() -> void:
-	camera.make_current()
 
 func initialize_doors(top_door: bool, right_door: bool, bottom_door: bool, left_door: bool) -> void:
 	if top_door:

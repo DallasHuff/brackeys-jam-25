@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2vtndj1hyq1c"]
+
+[ext_resource type="Script" uid="uid://be61puhomjmtg" path="res://Rooms/room.gd" id="1_emjvf"]
+[ext_resource type="Texture2D" uid="uid://bbqv1pfcry7tb" path="res://white square.png" id="2_qsmkc"]
+[ext_resource type="PackedScene" uid="uid://ly374lfgx7y3" path="res://Rooms/obstacle.tscn" id="3_pip3n"]
+[ext_resource type="PackedScene" uid="uid://b2c6of1fkxb1n" path="res://Rooms/door.tscn" id="4_gmepf"]
+[ext_resource type="Script" uid="uid://dyp6lvmmix2d0" path="res://entities/follow_camera.gd" id="5_qsmkc"]
+
+[node name="Room" type="Node2D" node_paths=PackedStringArray("doors", "main_walls")]
+scale = Vector2(10, 10)
+script = ExtResource("1_emjvf")
+doors = [NodePath("Doors/TopDoor"), NodePath("Doors/RightDoor"), NodePath("Doors/BottomDoor"), NodePath("Doors/LeftDoor")]
+main_walls = [NodePath("Walls/TopWall"), NodePath("Walls/RightWall"), NodePath("Walls/BottomWall"), NodePath("Walls/LeftWall")]
+
+[node name="Room Background" type="Sprite2D" parent="."]
+scale = Vector2(19.2, 19.6)
+texture = ExtResource("2_qsmkc")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="TopWall" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(0, -95.5)
+scale = Vector2(192, 5)
+
+[node name="TopWallLeftHalf" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(-49.25, -95.5)
+scale = Vector2(93.5, 5)
+
+[node name="TopWallRightHalf" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(49.25, -95.5)
+scale = Vector2(93.5, 5)
+
+[node name="RightWall" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(93.5, 0)
+scale = Vector2(5, 196)
+
+[node name="RightWallTopHalf" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(93.5, -50.25)
+scale = Vector2(5, 95.5)
+
+[node name="RightWallBottomHalf" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(93.5, 50.25)
+scale = Vector2(5, 95.5)
+
+[node name="BottomWall" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(0, 95.5)
+scale = Vector2(192, 5)
+
+[node name="BottomWallLeftHalf" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(-49.25, 95.5)
+scale = Vector2(93.5, 5)
+
+[node name="BottomWallRightHalf" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(49.25, 95.5)
+scale = Vector2(93.5, 5)
+
+[node name="LeftWall" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(-93.5, 0)
+scale = Vector2(5, 196)
+
+[node name="LeftWallTopHalf" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(-93.5, -50.25)
+scale = Vector2(5, 95.5)
+
+[node name="LeftWallBottomHalf" parent="Walls" instance=ExtResource("3_pip3n")]
+position = Vector2(-93.5, 50.25)
+scale = Vector2(5, 95.5)
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="TopDoor" parent="Doors" instance=ExtResource("4_gmepf")]
+position = Vector2(0, -103)
+
+[node name="SpawnPoint" parent="Doors/TopDoor" index="2"]
+position = Vector2(0, 12)
+
+[node name="RightDoor" parent="Doors" instance=ExtResource("4_gmepf")]
+position = Vector2(101, 0)
+travelDirection = 1
+
+[node name="SpawnPoint" parent="Doors/RightDoor" index="2"]
+position = Vector2(-12, 0)
+
+[node name="BottomDoor" parent="Doors" instance=ExtResource("4_gmepf")]
+position = Vector2(0, 103)
+travelDirection = 2
+
+[node name="SpawnPoint" parent="Doors/BottomDoor" index="2"]
+position = Vector2(0, -12)
+
+[node name="LeftDoor" parent="Doors" instance=ExtResource("4_gmepf")]
+position = Vector2(-101, 0)
+travelDirection = 3
+
+[node name="SpawnPoint" parent="Doors/LeftDoor" index="2"]
+position = Vector2(12, 0)
+
+[node name="FollowCamera" type="Camera2D" parent="."]
+script = ExtResource("5_qsmkc")
+bounds = Rect2(0, -440, 0, 880)
+metadata/_custom_type_script = "uid://dyp6lvmmix2d0"
+
+[editable path="Doors/TopDoor"]
+[editable path="Doors/RightDoor"]
+[editable path="Doors/BottomDoor"]
+[editable path="Doors/LeftDoor"]

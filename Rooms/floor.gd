@@ -19,8 +19,9 @@ func _ready() -> void:
 
 
 func setup_room_layout() -> void:
+	var random_number_generator: RandomNumberGenerator = RandomNumberGenerator.new()
 	for room in GenerateRoomLayout.generate(number_of_rooms):
-		rooms[room] = room_scenes[0]
+		rooms[room] = room_scenes[random_number_generator.randi_range(0, room_scenes.size() - 1)]
 	# print("rooms:", rooms.keys())
 
 
