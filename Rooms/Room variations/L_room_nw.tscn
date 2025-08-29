@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://brpu1cm0egwlx"]
+[gd_scene load_steps=6 format=3 uid="uid://0ne2gsj2c802"]
 
 [ext_resource type="Script" uid="uid://be61puhomjmtg" path="res://Rooms/room.gd" id="1_23ww4"]
 [ext_resource type="Texture2D" uid="uid://bbqv1pfcry7tb" path="res://white square.png" id="2_feucy"]
@@ -10,7 +10,7 @@
 scale = Vector2(10, 10)
 script = ExtResource("1_23ww4")
 doors = [NodePath("Doors/TopDoor"), NodePath("Doors/RightDoor"), NodePath("Doors/BottomDoor"), NodePath("Doors/LeftDoor")]
-main_walls = [NodePath("Walls/TopLeftWall"), NodePath("Walls/RightLowerWall"), NodePath("Walls/BottomWall"), NodePath("Walls/LeftWall")]
+main_walls = [NodePath("Walls/TopRightWall"), NodePath("Walls/RightWall"), NodePath("Walls/BottomWall"), NodePath("Walls/LeftLowerWall")]
 
 [node name="Room Background" type="Sprite2D" parent="."]
 scale = Vector2(37.4, 19.6)
@@ -18,43 +18,39 @@ texture = ExtResource("2_feucy")
 
 [node name="Corner Background" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(96, -54.4)
+position = Vector2(-96, -54.4)
 scale = Vector2(18.2, 8.88)
 texture = ExtResource("2_feucy")
 
 [node name="Walls" type="Node2D" parent="."]
 
-[node name="TopLeftWall" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(-91, -95.49999)
+[node name="TopRightWall" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(91, -95.5)
 scale = Vector2(192, 5)
 
-[node name="TopLeftWallLeftHalf" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(-140.25, -95.5)
-scale = Vector2(93.5, 5)
-
-[node name="TopLeftWallRightHalf" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(-41.75, -95.5)
-scale = Vector2(93.5, 5)
-
-[node name="TopRightWall" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(93.5, -7.5)
+[node name="TopLeftWall" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(-93.5, -7.5)
 scale = Vector2(187, 5)
 
-[node name="RightUpperWall" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(2.5, -51.5)
-scale = Vector2(5, 93)
+[node name="TopRightWallLeftHalf" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(140.25, -95.5)
+scale = Vector2(93.49999, 4.9999995)
 
-[node name="RightLowerWall" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(184.5, 44)
-scale = Vector2(5, 108)
+[node name="TopRightWallRightHalf" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(41.75, -95.5)
+scale = Vector2(93.49999, 4.9999995)
 
-[node name="RightLowerWallTopHalf" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(184.5, 15.75)
-scale = Vector2(5, 51.5)
+[node name="RightWall" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(184.5, 0)
+scale = Vector2(5, 196)
 
-[node name="RightLowerWallBottomHalf" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(184.5, 72.25)
-scale = Vector2(5, 51.5)
+[node name="RightWallTopHalf" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(184.5, -50.25)
+scale = Vector2(5, 95.5)
+
+[node name="RightWallBottomHalf" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(184.5, 50.25)
+scale = Vector2(5, 95.5)
 
 [node name="BottomWall" parent="Walls" instance=ExtResource("3_213rx")]
 position = Vector2(0, 95.5)
@@ -68,28 +64,32 @@ scale = Vector2(184.5, 5)
 position = Vector2(94.75, 95.5)
 scale = Vector2(184.5, 5)
 
-[node name="LeftWall" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(-184.5, 0)
-scale = Vector2(5, 196)
+[node name="LeftUpperWall" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(-2.5, -51.5)
+scale = Vector2(4.9999995, 92.99999)
 
-[node name="LeftWallTopHalf" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(-184.5, -50.25)
-scale = Vector2(5, 95.5)
+[node name="LeftLowerWall" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(-184.5, 44)
+scale = Vector2(5, 108)
 
-[node name="LeftWallBottomHalf" parent="Walls" instance=ExtResource("3_213rx")]
-position = Vector2(-184.5, 50.25)
-scale = Vector2(5, 95.5)
+[node name="LeftLowerWallTopHalf" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(-184.5, 15.75)
+scale = Vector2(5, 51.5)
+
+[node name="LeftLowerWallBottomHalf" parent="Walls" instance=ExtResource("3_213rx")]
+position = Vector2(-184.5, 72.25)
+scale = Vector2(5, 51.5)
 
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="TopDoor" parent="Doors" instance=ExtResource("4_x12nh")]
-position = Vector2(-91, -103)
+position = Vector2(91, -103)
 
 [node name="SpawnPoint" parent="Doors/TopDoor" index="2"]
 position = Vector2(0, 12)
 
 [node name="RightDoor" parent="Doors" instance=ExtResource("4_x12nh")]
-position = Vector2(192, 44)
+position = Vector2(192, 0)
 travelDirection = 1
 
 [node name="SpawnPoint" parent="Doors/RightDoor" index="2"]
@@ -103,7 +103,7 @@ travelDirection = 2
 position = Vector2(0, -12)
 
 [node name="LeftDoor" parent="Doors" instance=ExtResource("4_x12nh")]
-position = Vector2(-192, 0)
+position = Vector2(-192, 44)
 travelDirection = 3
 
 [node name="SpawnPoint" parent="Doors/LeftDoor" index="2"]

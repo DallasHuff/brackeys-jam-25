@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk2s5mu0eschv"]
+[gd_scene load_steps=7 format=3 uid="uid://dk2s5mu0eschv"]
 
 [ext_resource type="Script" uid="uid://ckybsqney8c80" path="res://Rooms/floor.gd" id="1_cgngl"]
 [ext_resource type="PackedScene" uid="uid://msjbmodafbn1" path="res://Rooms/Room variations/base_room.tscn" id="2_wd3ws"]
 [ext_resource type="PackedScene" uid="uid://grip3vcbn5o0" path="res://Rooms/Room variations/horizontal_room.tscn" id="3_rfsg4"]
 [ext_resource type="PackedScene" uid="uid://b2vtndj1hyq1c" path="res://Rooms/Room variations/vertical_room.tscn" id="4_gd0t2"]
-[ext_resource type="PackedScene" uid="uid://0ne2gsj2c802" path="res://Rooms/Room variations/L_room_ne.tscn" id="5_ccnia"]
+[ext_resource type="PackedScene" uid="uid://brpu1cm0egwlx" path="res://Rooms/Room variations/L_room_ne.tscn" id="5_ccnia"]
+[ext_resource type="PackedScene" uid="uid://0ne2gsj2c802" path="res://Rooms/Room variations/L_room_nw.tscn" id="6_gd0t2"]
 
 [node name="Floor" type="Node2D"]
 script = ExtResource("1_cgngl")
-room_scenes = Array[PackedScene]([ExtResource("2_wd3ws"), ExtResource("3_rfsg4"), ExtResource("4_gd0t2"), ExtResource("5_ccnia")])
+room_scenes = Array[PackedScene]([ExtResource("2_wd3ws"), ExtResource("2_wd3ws"), ExtResource("2_wd3ws"), ExtResource("2_wd3ws"), ExtResource("2_wd3ws"), ExtResource("3_rfsg4"), ExtResource("3_rfsg4"), ExtResource("4_gd0t2"), ExtResource("4_gd0t2"), ExtResource("5_ccnia"), ExtResource("6_gd0t2")])
 number_of_rooms = 30
 metadata/_custom_type_script = "uid://ckybsqney8c80"
